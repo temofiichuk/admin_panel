@@ -1,0 +1,16 @@
+.primary-btn {
+  background-image: $primary_gradient;
+  height: 50px;
+  width: 100%;
+  border-radius: 16px;
+  transition: all 0.35s;
+
+  span {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+}
