@@ -1,6 +1,7 @@
 import React from "react";
-import Input from "./Input";
-import anonymousAvatar from "../assets/img/icon/anonymous_avatar.svg";
+import Input from "../Input/Input";
+import "./CardLogin.scss";
+import anonymousAvatar from "../../assets/img/icon/anonymous_avatar.svg";
 
 const CardLogin = () => {
   return (

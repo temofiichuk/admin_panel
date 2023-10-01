@@ -13,7 +13,13 @@ $primary_gradient: linear-gradient(
   #5249a4,
   #4c53b3,
   #525cbc,
-  #5966c6,
-  #5f6fcf,
-  #6679d8
+  #5966c6
+);
+
+$bg-linear-primary: linear-gradient(
+  to right top,
+  #301534,
+  #3e1b3b,
+  #6b2d4c,
+  #76385a
 );

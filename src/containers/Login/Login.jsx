@@ -1,4 +1,5 @@
-import CardLogin from "../components/CardLogin";
+import CardLogin from "../../components/CardLogin/CardLogin";
+import "./Login.scss";
 
 const Login = () => {
   return (

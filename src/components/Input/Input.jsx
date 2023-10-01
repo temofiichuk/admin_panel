@@ -1,5 +1,5 @@
 import React, { useId } from "react";
-
+import "./Input.scss";
 const Input = ({ id, className, ...attributes }) => {
   const uniqueID = useId();
   return (

@@ -1,3 +1,6 @@
+@import "../../../src/assets/scss/colors/colors";
+@import "../../../src/assets/scss/variables/variables";
+
 .login {
   width: 100%;
   max-width: 400px;
@@ -42,11 +45,11 @@
   }
 
   label[class*="login-name"]:after {
-    content: url("../../img/icon/login_name.svg");
+    content: url("../../assets/img/icon/login_name.svg");
   }
 
   label[class*="password"]:after {
-    content: url("../../img/icon/eye_close.svg");
+    content: url("../../assets/img/icon/eye_close.svg");
   }
 
   .login__btn {
