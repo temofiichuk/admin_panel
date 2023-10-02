@@ -1,0 +1,11 @@
+@import "../../../src/assets/scss/colors/colors";
+@import "../../../src/assets/scss/variables/variables";
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: $bg-linear-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
