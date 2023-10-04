@@ -1,31 +1,49 @@
-import React from "react";
+import { useState } from "react";
 import Input from "../Input/Input";
 import "./CardLogin.scss";
-import anonymousAvatar from "../../assets/img/icon/anonymous_avatar.svg";
+import {
+  RiAccountPinCircleFill,
+  RiEyeCloseLine,
+  RiEyeFill,
+  RiMailFill
+} from "react-icons/ri";
 
 const CardLogin = () => {
+  const [isHidePassword, setIsHidePassword] = useState(true);
   return (
     <form className={"login"}>
       <div className='login__container'>
-        <div className='login__image'>
-          <img src={`${anonymousAvatar}`} alt='Anonymous Avatar' />
+        <div className='login__bg-image'>
+          <RiAccountPinCircleFill className='login__image' />
         </div>
-        <Input
-          id={"login_name"}
-          type={"text"}
-          name={"login_name"}
-          className={"login__login-name"}
-          placeholder={"Email ID"}
-        />
-        <Input
-          id={"login_password"}
-          type={"password"}
-          name={"login_password"}
-          className={"login__password"}
-          placeholder={"Password"}
-        />
+        <div>
+          <Input
+            id={"login_name"}
+            type={"text"}
+            name={"login_name"}
+            className={"login__login-name"}
+            placeholder={"Email ID"}
+          />
+          <RiMailFill className={"login__input-icon"} />
+        </div>
+        <div>
+          <Input
+            id={"login_password"}
+            type={isHidePassword ? "password" : "text"}
+            name={"login_password"}
+            className={"login__password"}
+            placeholder={"Password"}
+          />
+          {isHidePassword ? (
+            <RiEyeCloseLine className={"login__input-icon"} />
+          ) : (
+            <RiEyeFill className={"login__input-icon"} />
+          )}
+        </div>
 
-        <button type='submit' className='login__btn primary-btn'>
+        <button
+          type='submit'
+          className='login__btn primary-btn'>
           <span>Login</span>
         </button>
       </div>
