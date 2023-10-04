@@ -1,0 +1,17 @@
+@import "../../assets/scss/variables/variables";
+
+.product-editing-page {
+  background: $bg-light;
+  padding: 40px 0;
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  [class$="__buttons"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+  }
+}

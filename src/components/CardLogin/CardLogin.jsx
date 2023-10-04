@@ -35,15 +35,15 @@ const CardLogin = () => {
             placeholder={"Password"}
           />
           {isHidePassword ? (
-            <RiEyeCloseLine className={"login__input-icon"} />
+            <RiEyeCloseLine className={"login__input-icon btn"} />
           ) : (
-            <RiEyeFill className={"login__input-icon"} />
+            <RiEyeFill className={"login__input-icon btn"} />
           )}
         </div>
 
         <button
           type='submit'
-          className='login__btn primary-btn'>
+          className='login__btn secondary-btn'>
           <span>Login</span>
         </button>
       </div>
