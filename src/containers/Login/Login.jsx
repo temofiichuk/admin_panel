@@ -3,8 +3,10 @@ import "./Login.scss";
 
 const Login = () => {
   return (
-    <section className={"login-page"}>
-      <CardLogin />
+    <section className="login-page">
+      <div className="container">
+        <CardLogin />
+      </div>
     </section>
   );
 };

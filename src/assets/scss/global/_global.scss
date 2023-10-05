@@ -1,5 +1,22 @@
 body {
+  background: $bg-light;
   font-family: "Onest", sans-serif;
   font-size: 18px;
-  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+button,
+[class$="btn"] {
+  transition: all 0.35s;
+  &:hover {
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.4));
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.07);
+  }
 }

@@ -9,41 +9,42 @@ import {
 } from "react-icons/ri";
 
 const CardLogin = () => {
+  // eslint-disable-next-line
   const [isHidePassword, setIsHidePassword] = useState(true);
   return (
-    <form className={"login"}>
-      <div className='login__container'>
-        <div className='login__bg-image'>
-          <RiAccountPinCircleFill className='login__image' />
+    <form className="login">
+      <div className="login__container">
+        <div className="login__bg-image">
+          <RiAccountPinCircleFill className="login__image" />
         </div>
         <div>
           <Input
-            id={"login_name"}
-            type={"text"}
-            name={"login_name"}
-            className={"login__login-name"}
-            placeholder={"Email ID"}
+            id="login_name"
+            type="text"
+            name="login_name"
+            className="login__login-name"
+            placeholder="Email ID"
           />
-          <RiMailFill className={"login__input-icon"} />
+          <RiMailFill className="login__input-icon" />
         </div>
         <div>
           <Input
-            id={"login_password"}
+            id="login_password"
             type={isHidePassword ? "password" : "text"}
-            name={"login_password"}
-            className={"login__password"}
-            placeholder={"Password"}
+            name="login_password"
+            className="login__password"
+            placeholder="Password"
           />
           {isHidePassword ? (
-            <RiEyeCloseLine className={"login__input-icon"} />
+            <RiEyeCloseLine className={"login__input-icon btn"} />
           ) : (
-            <RiEyeFill className={"login__input-icon"} />
+            <RiEyeFill className={"login__input-icon btn"} />
           )}
         </div>
 
         <button
-          type='submit'
-          className='login__btn primary-btn'>
+          type="submit"
+          className="login__btn secondary-btn">
           <span>Login</span>
         </button>
       </div>

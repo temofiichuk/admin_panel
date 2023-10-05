@@ -1,0 +1,41 @@
+@import "../../assets/scss/variables/variables";
+.products__table {
+  background: $white;
+  margin: 0 auto;
+  box-shadow: 0 0 15px $black_alfa_25;
+  border-radius: 25px;
+  border-spacing: 30px;
+  width: calc(100% - 40px);
+
+  thead {
+    border-bottom: 1px solid $black_alfa_25;
+
+    th > p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+
+  tr:not(tr:last-child):after {
+    content: "";
+    width: calc(100% - 40px);
+    height: 1px;
+    background: $black_alfa_25;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+
+  th,
+  td {
+    padding: 15px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+}

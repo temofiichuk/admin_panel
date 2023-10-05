@@ -7,8 +7,8 @@
   height: 100%;
   max-height: 500px;
   border-radius: 40px;
-  background: $white_alfa_10;
-  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 25px $black_alfa_25;
 
   .login__container {
     display: flex;
@@ -30,6 +30,7 @@
   .login__image {
     width: 100%;
     height: 100%;
+    color: $white;
   }
 
   .login__input-icon {
@@ -37,8 +38,14 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    color: $white;
   }
+
   .login__btn {
     margin: auto;
+    max-width: 100%;
+    span {
+      margin: 0 auto;
+    }
   }
 }
