@@ -29,15 +29,15 @@ const ProductsEditing = () => {
   ];
 
   return (
-    <section className={"product-editing-page"}>
-      <div className={"container"}>
-        <div className={"product-editing__buttons"}>
+    <section className="product-editing-page">
+      <div className="container">
+        <div className="product-editing__buttons">
           <Button
-            text={"Review"}
+            text="Review"
             icon={<RiComputerFill />}
           />
           <Button
-            text={"Add Product"}
+            text="Add Product"
             icon={<RiAddFill />}
           />
         </div>

@@ -3,8 +3,8 @@ import "./Login.scss";
 
 const Login = () => {
   return (
-    <section className={"login-page"}>
-      <div className={"container"}>
+    <section className="login-page">
+      <div className="container">
         <CardLogin />
       </div>
     </section>
