@@ -31,7 +31,9 @@ const CardLogin = () => {
     e.preventDefault();
     let isValid = true;
     for (let key in authFields) {
-      isValid = validFieldLogin(key, authFields[key]);
+      if (!validFieldLogin(key, authFields[key])) {
+        isValid = false;
+      }
     }
     if (!isValid) return;
     try {
