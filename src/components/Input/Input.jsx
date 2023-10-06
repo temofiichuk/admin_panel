@@ -1,14 +1,17 @@
 import React, { useId } from "react";
 import "./Input.scss";
 
-const Input = ({ id, className, ...attributes }) => {
+const Input = ({ error, id, ...attributes }) => {
   const uniqueID = useId();
   return (
-    <label htmlFor={`${id}_${uniqueID}`} className={className}>
+    <label
+      className="input-component"
+      htmlFor={`${id}_${uniqueID}`}>
+      {error && <span className="text-error">{error}</span>}
       <input
         id={`${id}_${uniqueID}`}
-        className={`input-component ${className}`}
-        {...attributes}></input>
+        {...attributes}
+      />
     </label>
   );
 };
