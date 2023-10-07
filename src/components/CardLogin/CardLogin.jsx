@@ -12,26 +12,26 @@ const CardLogin = () => {
 
   const hidePasswordHandler = () => setIsHidePassword((prev) => !prev);
 
-  const validFieldLogin = (name, value) => {
+  const validateFieldsLogin = (name, value) => {
     const isValid = value.length > 0;
     setErrorFields((prev) => ({
       ...prev,
-      [name]: !isValid ? `${name.charAt(0).toUpperCase() + name.slice(1)} is required` : "",
+      [name]: !isValid ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required` : "",
     }));
     return isValid;
   };
 
-  const changeLoginFormHandler = ({ target: { name, value } }) => {
+  const handleChangeLoginForm = ({ target: { name, value } }) => {
     if (message) setMessage("");
-    validFieldLogin(name, value);
+    validateFieldsLogin(name, value);
     setAuthFields((prev) => ({ ...prev, [name]: value }));
   };
 
-  const authHandler = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
     for (let key in authFields) {
-      if (!validFieldLogin(key, authFields[key])) {
+      if (!validateFieldsLogin(key, authFields[key])) {
         isValid = false;
       }
     }
@@ -50,7 +50,7 @@ const CardLogin = () => {
   return (
     <form
       className="login"
-      onSubmit={authHandler}>
+      onSubmit={handleSubmit}>
       <div className="login__container">
         <div className="login__bg-image">
           <RiAccountPinCircleFill className="login__image" />
@@ -61,7 +61,7 @@ const CardLogin = () => {
             type="text"
             name="login"
             placeholder="Email ID"
-            onChange={changeLoginFormHandler}
+            onChange={handleChangeLoginForm}
             value={authFields.login}
             error={errorFields.login}
           />
@@ -73,7 +73,7 @@ const CardLogin = () => {
             type={isHidePassword ? "password" : "text"}
             name="password"
             placeholder="Password"
-            onChange={changeLoginFormHandler}
+            onChange={handleChangeLoginForm}
             value={authFields.password}
             error={errorFields.password}
           />
