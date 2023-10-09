@@ -1,52 +1,101 @@
 import { useState } from "react";
+import axios from "axios";
 import Input from "../Input/Input";
 import "./CardLogin.scss";
-import {
-  RiAccountPinCircleFill,
-  RiEyeCloseLine,
-  RiEyeFill,
-  RiMailFill
-} from "react-icons/ri";
+import { RiAccountPinCircleFill, RiEyeCloseLine, RiEyeFill, RiMailFill } from "react-icons/ri";
 
 const CardLogin = () => {
-  // eslint-disable-next-line
+  const [authFields, setAuthFields] = useState({ login: "", password: "" });
+  const [errorFields, setErrorFields] = useState({ login: "", password: "" });
   const [isHidePassword, setIsHidePassword] = useState(true);
+  const [message, setMessage] = useState("");
+
+  const hidePasswordHandler = () => setIsHidePassword((prev) => !prev);
+
+  const validateFieldsLogin = (name, value) => {
+    const isValid = value.length > 0;
+    setErrorFields((prev) => ({
+      ...prev,
+      [name]: !isValid ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required` : "",
+    }));
+    return isValid;
+  };
+
+  const handleChangeLoginForm = ({ target: { name, value } }) => {
+    if (message) setMessage("");
+    validateFieldsLogin(name, value);
+    setAuthFields((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let isValid = true;
+    for (let key in authFields) {
+      if (!validateFieldsLogin(key, authFields[key])) {
+        isValid = false;
+      }
+    }
+    if (!isValid) return;
+    try {
+      const { data: token } = await axios.post("http://localhost:5678/users", authFields);
+      if (token) {
+        localStorage.setItem("token", token);
+        console.log("You are logged in ");
+      }
+    } catch (error) {
+      setMessage(error?.response?.data?.message || "Something went wrong, try again");
+    }
+  };
+
   return (
-    <form className="login">
+    <form
+      className="login"
+      onSubmit={handleSubmit}>
       <div className="login__container">
         <div className="login__bg-image">
           <RiAccountPinCircleFill className="login__image" />
         </div>
-        <div>
+        <div className="wrapper">
           <Input
             id="login_name"
             type="text"
-            name="login_name"
-            className="login__login-name"
+            name="login"
             placeholder="Email ID"
+            onChange={handleChangeLoginForm}
+            value={authFields.login}
+            error={errorFields.login}
           />
-          <RiMailFill className="login__input-icon" />
+          <RiMailFill />
         </div>
-        <div>
+        <div className="wrapper">
           <Input
             id="login_password"
             type={isHidePassword ? "password" : "text"}
-            name="login_password"
-            className="login__password"
+            name="password"
             placeholder="Password"
+            onChange={handleChangeLoginForm}
+            value={authFields.password}
+            error={errorFields.password}
           />
           {isHidePassword ? (
-            <RiEyeCloseLine className={"login__input-icon btn"} />
+            <RiEyeCloseLine
+              onClick={hidePasswordHandler}
+              className="btn"
+            />
           ) : (
-            <RiEyeFill className={"login__input-icon btn"} />
+            <RiEyeFill
+              onClick={hidePasswordHandler}
+              className="btn"
+            />
           )}
         </div>
 
         <button
           type="submit"
-          className="login__btn secondary-btn">
+          className="secondary-btn">
           <span>Login</span>
         </button>
+        {message && <p className="login__message fail">{message}</p>}
       </div>
     </form>
   );
