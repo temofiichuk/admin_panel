@@ -1,0 +1,15 @@
+@import "src/assets/scss/variables/variables";
+
+.products-preview {
+
+  h1 {
+    text-align: center;
+    margin: 24px;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $gap_default;
+    padding: 15px;
+  }
+}
