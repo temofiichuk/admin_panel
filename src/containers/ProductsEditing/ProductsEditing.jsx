@@ -2,31 +2,23 @@ import "./ProductsEditing.scss";
 import ProductsTable from "../../components/ProductsTable/ProductsTable";
 import Button from "../../components/Button/Button";
 import { RiComputerFill, RiAddFill } from "react-icons/ri";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const ProductsEditing = () => {
-  const products = [
-    {
-      id: 1,
-      category: "PC",
-      name: "Lenovo Y50-70",
-      quantity: 5,
-      price: 25000.0
-    },
-    {
-      id: 2,
-      category: "Clothes",
-      name: "Nike M Nk Df Acd21",
-      quantity: 22,
-      price: 4000.0
-    },
-    {
-      id: 3,
-      category: "Plumbing",
-      name: "CERSANIT MITO 17",
-      quantity: 1337,
-      price: 5000.0
-    }
-  ];
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:5678/products");
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <section className="product-editing-page">
@@ -42,7 +34,7 @@ const ProductsEditing = () => {
           />
         </div>
         <h1>Products</h1>
-        <ProductsTable products={products} />
+        {products && <ProductsTable products={products} />}
       </div>
     </section>
   );
