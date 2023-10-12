@@ -1,0 +1,43 @@
+@import "src/assets/scss/variables/variables";
+
+.card {
+  box-shadow: 0 0 15px $black_alfa_25;
+  width: 100%;
+  aspect-ratio: 5/7;
+  border-radius: 24px;
+  background: $white;
+
+
+  .card__container {
+    padding: $padding_default;
+    justify-content: flex-end;
+    height: 100%;
+
+    &, & > .wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: $gap_default;
+    }
+  }
+
+  .card__image {
+    height: auto;
+  }
+
+  .card__name {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+
+     + .wrapper {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+     }
+  }
+
+  button {
+    margin: 0 auto;
+  }
+}

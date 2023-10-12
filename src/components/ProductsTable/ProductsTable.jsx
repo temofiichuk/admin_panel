@@ -1,10 +1,5 @@
 import "./ProductsTable.scss";
-import {
-  RiEdit2Fill,
-  RiDeleteBin2Fill,
-  RiSortAsc,
-  RiSortDesc
-} from "react-icons/ri";
+import { RiEdit2Fill, RiDeleteBin2Fill, RiSortAsc, RiSortDesc } from "react-icons/ri";
 const ProductsTable = ({ products }) => {
   return (
     <table className="products__table">
@@ -43,8 +38,8 @@ const ProductsTable = ({ products }) => {
             <th>{id}</th>
             <th>{category}</th>
             <th>{name}</th>
-            <th>{quantity}</th>
             <th>{price}</th>
+            <th>{quantity}</th>
             <th className="buttons">
               <RiEdit2Fill className="btn" />
               <RiDeleteBin2Fill className="btn" />
