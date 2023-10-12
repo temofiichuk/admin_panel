@@ -10,8 +10,7 @@ const ProductsPreview = () => {
       <div className="container">
         <h1>Products</h1>
         <div className="products">
-          {products &&
-            products.map((product) => <ProductCard key={product.id} product={product} />)}
+          {products?.map((product) => <ProductCard key={product.id} product={product} />)}
         </div>
       </div>
     </section>
