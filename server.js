@@ -27,10 +27,23 @@ app.post("/users", (req, res) => {
   const { users } = JSON.parse(fs.readFileSync("./db.json"));
   const user = users.find((user) => user.login === login && user.password === password);
   if (user) {
-    const token = jwt.sign({ login }, secretKey);
+    const token = jwt.sign({ login }, secretKey, { expiresIn: "2h" });
     res.json(token);
   } else {
     res.status(401).json({ message: "Login or Password is incorrect" });
+  }
+});
+
+app.post("/token", (req, res) => {
+  const { token } = req.body;
+  if (!token) {
+    return res.status(401).json({ message: "Access denied. No token provided." });
+  }
+  try {
+    const user = jwt.verify(token, secretKey);
+    res.json(user);
+  } catch (error) {
+    res.status(401).json({ message: "Invalid Token" });
   }
 });
 
@@ -39,7 +52,15 @@ app.get("/products", (req, res) => {
   res.json(products);
 });
 
-app.post("/products/edit/:id", (req, res) => {
+app.get("/products/:id", (req, res) => {
+  const { id } = req.params;
+  const { products } = JSON.parse(fs.readFileSync("./db.json"));
+  const product = products.find((_product) => _product.id === +id);
+  console.log(product);
+  product ? res.json(product) : res.status(404).json({ message: "Not Found" });
+});
+
+app.put("/products/:id", (req, res) => {
   const { id } = req.params;
   const { product } = req.body;
   const data = JSON.parse(fs.readFileSync("./db.json"));
@@ -55,7 +76,7 @@ app.post("/products/edit/:id", (req, res) => {
   }
 });
 
-app.post("/products/delete/:id", (req, res) => {
+app.delete("/products/:id", (req, res) => {
   const { id } = req.params;
   const data = JSON.parse(fs.readFileSync("./db.json"));
   data.products = data.products.filter((product) => product.id !== +id);
@@ -63,7 +84,7 @@ app.post("/products/delete/:id", (req, res) => {
   res.json({ success: true });
 });
 
-app.post("/products/add", (req, res) => {
+app.post("/products", (req, res) => {
   const { product } = req.body;
   const data = JSON.parse(fs.readFileSync("./db.json"));
   product.id =

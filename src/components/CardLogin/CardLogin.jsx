@@ -2,7 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import Input from "../Input/Input";
 import "./CardLogin.scss";
-import { RiAccountPinCircleFill, RiEyeCloseLine, RiEyeFill, RiMailFill } from "react-icons/ri";
+import {
+  RiAccountPinCircleFill,
+  RiEyeCloseLine,
+  RiEyeFill,
+  RiMailFill,
+} from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const CardLogin = () => {
   const [authFields, setAuthFields] = useState({ login: "", password: "" });
@@ -12,11 +18,15 @@ const CardLogin = () => {
 
   const hidePasswordHandler = () => setIsHidePassword((prev) => !prev);
 
+  const navigate = useNavigate();
+
   const validateFieldsLogin = (name, value) => {
     const isValid = value.length > 0;
     setErrorFields((prev) => ({
       ...prev,
-      [name]: !isValid ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required` : "",
+      [name]: !isValid
+        ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required`
+        : "",
     }));
     return isValid;
   };
@@ -37,10 +47,13 @@ const CardLogin = () => {
     }
     if (!isValid) return;
     try {
-      const { data: token } = await axios.post("http://localhost:5678/users", authFields);
+      const { data: token } = await axios.post(
+        `${process.env.REACT_APP_DB_SERVER}/users`,
+        authFields
+      );
       if (token) {
         localStorage.setItem("token", token);
-        console.log("You are logged in ");
+        navigate("/edit");
       }
     } catch (error) {
       setMessage(error?.response?.data?.message || "Something went wrong, try again");
@@ -48,9 +61,7 @@ const CardLogin = () => {
   };
 
   return (
-    <form
-      className="login"
-      onSubmit={handleSubmit}>
+    <form className="login" onSubmit={handleSubmit}>
       <div className="login__container">
         <div className="login__bg-image">
           <RiAccountPinCircleFill className="login__image" />
@@ -78,21 +89,13 @@ const CardLogin = () => {
             error={errorFields.password}
           />
           {isHidePassword ? (
-            <RiEyeCloseLine
-              onClick={hidePasswordHandler}
-              className="btn"
-            />
+            <RiEyeCloseLine onClick={hidePasswordHandler} className="btn" />
           ) : (
-            <RiEyeFill
-              onClick={hidePasswordHandler}
-              className="btn"
-            />
+            <RiEyeFill onClick={hidePasswordHandler} className="btn" />
           )}
         </div>
 
-        <button
-          type="submit"
-          className="secondary-btn">
+        <button type="submit" className="secondary-btn">
           <span>Login</span>
         </button>
         {message && <p className="login__message fail">{message}</p>}

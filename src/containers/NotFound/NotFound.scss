@@ -1,0 +1,17 @@
+.not-found-page {
+  .container,
+  .container > .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  h1 {
+    font-size: 120px;
+  }
+}
