@@ -1,7 +1,8 @@
 import "./Product.scss";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import { RiArrowGoBackLine, RiEmotionLaughLine, RiEmotionSadLine } from "react-icons/ri";
 import Spinner from "../../components/Spinner/Spinner";
 
@@ -60,12 +61,14 @@ const Product = () => {
         {description && (
           <div className="description">
             <p>Description:</p>
-            {description.map((describe) => (
-              <div className="block">
-                <p>{describe.head}</p>
-                <p>{describe.body}</p>
-              </div>
-            ))}
+            {description.map((describe) => {
+              return (
+                <div key={uuidv4()} className="block">
+                  <p>{describe.head}</p>
+                  <p>{describe.body}</p>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
