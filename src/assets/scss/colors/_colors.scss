@@ -3,6 +3,7 @@ $white_alfa_10: rgba(255, 255, 255, 0.1);
 $black_alfa_25: rgba(0, 0, 0, 0.25);
 $white: #ffffff;
 $error: #b92c2c;
+$green: #309975;
 $primary_gradient: linear-gradient(
   to right,
   #480731,
@@ -17,12 +18,5 @@ $primary_gradient: linear-gradient(
   #5966c6
 );
 
-$bg-linear-primary: linear-gradient(
-  to right top,
-  #301534,
-  #3e1b3b,
-  #6b2d4c,
-  #76385a
-);
+$bg-linear-primary: linear-gradient(to right top, #301534, #3e1b3b, #6b2d4c, #76385a);
 $bg-light: #fafbff;
-

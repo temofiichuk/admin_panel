@@ -7,9 +7,8 @@ const useGetProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5678/products");
+        const { data } = await axios.get(`${process.env.REACT_APP_DB_SERVER}/products`);
         setProducts(data);
-        console.log("get Products");
       } catch (error) {
         console.error("Error fetching products:", error);
       }

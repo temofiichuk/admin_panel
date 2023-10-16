@@ -1,15 +1,24 @@
 @import "src/assets/scss/variables/variables";
 
 .products-preview {
+  padding: 40px 0;
 
   h1 {
     text-align: center;
     margin: 24px;
   }
+
   .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: $gap_default;
-    padding: 15px;
+    padding: 0 15px;
+  }
+
+  [class$="__buttons"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
   }
 }
