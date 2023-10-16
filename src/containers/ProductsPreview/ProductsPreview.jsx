@@ -12,7 +12,7 @@ const ProductsPreview = () => {
     <section className="products-preview">
       <div className="container">
         <div className="product-editing__buttons">
-          <Link to="/edit">
+          <Link to="/products-table">
             <Button text="Edit" icon={<RiStackFill />} />
           </Link>
         </div>

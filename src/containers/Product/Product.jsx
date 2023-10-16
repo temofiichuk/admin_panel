@@ -1,6 +1,6 @@
 import "./Product.scss";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { RiArrowGoBackLine, RiEmotionLaughLine, RiEmotionSadLine } from "react-icons/ri";
@@ -47,11 +47,11 @@ const Product = () => {
           <div className="product-info">
             {+quantity > 0 ? (
               <div className="available">
-                <RiEmotionLaughLine /> <span>Available</span>{" "}
+                <RiEmotionLaughLine /> <span>Available</span>
               </div>
             ) : (
               <div className="not-available">
-                <RiEmotionSadLine /> <span>Not Available</span>{" "}
+                <RiEmotionSadLine /> <span>Not Available</span>
               </div>
             )}
             <p className="price">{price}₴</p>

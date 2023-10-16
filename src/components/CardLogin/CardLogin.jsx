@@ -53,7 +53,7 @@ const CardLogin = () => {
       );
       if (token) {
         localStorage.setItem("token", token);
-        navigate("/edit");
+        navigate("/products-table");
       }
     } catch (error) {
       setMessage(error?.response?.data?.message || "Something went wrong, try again");
