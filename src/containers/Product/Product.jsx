@@ -36,10 +36,7 @@ const Product = () => {
     <section className="product-page">
       <div className="container">
         <div className="heading">
-          <RiArrowGoBackLine
-            onClick={() => navigate("/preview")}
-            className="back-icon btn"
-          />
+          <RiArrowGoBackLine onClick={() => navigate(-1)} className="back-icon btn" />
           <h1>{name}</h1>
         </div>
         <div className="wrapper">
