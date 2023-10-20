@@ -1,0 +1,47 @@
+@import "src/assets/scss/variables/variables";
+
+.modal {
+  justify-content: center;
+  z-index: 9;
+
+  &,
+  .modal-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
+  &,
+  .modal-container,
+  .buttons {
+    display: flex;
+  }
+
+  .modal-bg {
+    background: $black_alfa_25;
+  }
+
+  .modal-container {
+    top: 40px;
+    padding: 24px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: max-content;
+    background: $white;
+    z-index: 10;
+    box-shadow: 0 0 25px $black_alfa_25;
+    height: max-content;
+  }
+
+  .modal-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .buttons {
+    justify-content: space-around;
+  }
+
+  .delete:hover {
+    box-shadow: 0 0 25px $error;
+  }
+}

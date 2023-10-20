@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useGetProducts = () => {
+const useGetProducts = (trigger) => {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const useGetProducts = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [trigger]);
 
   return products;
 };

@@ -1,8 +1,6 @@
 @import "../../assets/scss/variables/variables";
 
 .product-editing-page {
-  padding: 40px 0;
-
   h1 {
     text-align: center;
     margin: 24px;
@@ -12,6 +10,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 20px;
+    padding: 40px 20px;
   }
 }

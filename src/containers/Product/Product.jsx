@@ -26,7 +26,7 @@ const Product = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   if (isLoading) return <Spinner text="Loading" />;
   if (!product) return <Navigate to="/404" />;
