@@ -11,16 +11,15 @@ import axios from "axios";
 const ProductsEditing = () => {
   const [currentItemID, setCurrentItemID] = useState(null);
   const [isOpenModalDelete, setIsOpenModalDelete] = useState(false);
-  const [trigger, setTrigger] = useState(false);
 
-  const products = useGetProducts(trigger);
+  const [products, setCanUpdateProducts] = useGetProducts();
 
   const handleDeleteItem = async () => {
     try {
       const { data } = await axios.delete(
         `${process.env.REACT_APP_DB_SERVER}/products/${currentItemID}`
       );
-      if (data?.success) setTrigger((prev) => !prev);
+      if (data?.success) setCanUpdateProducts(true);
     } catch (error) {
       console.error("Error delete product:", error);
     }
@@ -28,14 +27,14 @@ const ProductsEditing = () => {
   };
 
   return (
-    <section className="product-editing-page">
+    <section className={"product-editing-page"}>
+      {isOpenModalDelete && (
+        <ModalDelete
+          handleDelete={handleDeleteItem}
+          setIsOpenModal={setIsOpenModalDelete}
+        />
+      )}
       <div className="container">
-        {isOpenModalDelete && (
-          <ModalDelete
-            handleDelete={handleDeleteItem}
-            setIsOpenModal={setIsOpenModalDelete}
-          />
-        )}
         <div className="product-editing__buttons">
           <Link to="/preview">
             <Button text="Preview" icon={<RiComputerFill />} />
