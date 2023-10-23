@@ -1,6 +1,11 @@
 import "./ProductsTable.scss";
 import { RiEdit2Fill, RiDeleteBin2Fill, RiSortAsc, RiSortDesc } from "react-icons/ri";
-const ProductsTable = ({ products }) => {
+const ProductsTable = ({ products, setIsOpenModalDelete, setCurrentItemID }) => {
+  const handleClickToDelete = (id) => {
+    setCurrentItemID(id);
+    setIsOpenModalDelete(true);
+  };
+
   return (
     <table className="products__table">
       <thead>
@@ -42,7 +47,7 @@ const ProductsTable = ({ products }) => {
             <th>{quantity}</th>
             <th className="buttons">
               <RiEdit2Fill className="btn" />
-              <RiDeleteBin2Fill className="btn" />
+              <RiDeleteBin2Fill onClick={() => handleClickToDelete(id)} className="btn" />
             </th>
           </tr>
         ))}
