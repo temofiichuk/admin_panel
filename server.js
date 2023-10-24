@@ -56,7 +56,6 @@ app.get("/products/:id", (req, res) => {
   const { id } = req.params;
   const { products } = JSON.parse(fs.readFileSync("./db.json"));
   const product = products.find((_product) => _product.id === +id);
-  console.log(product);
   product ? res.json(product) : res.status(404).json({ message: "Not Found" });
 });
 
@@ -65,15 +64,16 @@ app.put("/products/:id", (req, res) => {
   const { product } = req.body;
   const data = JSON.parse(fs.readFileSync("./db.json"));
   let item = data.products.find((product) => product.id === +id);
-  if (item) {
-    for (let productKey in product) {
-      item[productKey] = product[productKey];
-    }
-    writeDB(data);
-    res.json(item);
-  } else {
+  if (!item) {
     res.status(404).json({ message: "Not Found" });
+    return;
   }
+
+  for (let productKey in product) {
+    item[productKey] = product[productKey];
+  }
+  writeDB(data);
+  res.json({ success: true });
 });
 
 app.delete("/products/:id", (req, res) => {
@@ -91,7 +91,7 @@ app.post("/products", (req, res) => {
     Math.max(...data.products.map((product) => product.id), data.products.length) + 1;
   data.products.push(product);
   writeDB(data);
-  res.json(product);
+  res.json({ success: true });
 });
 
 app.listen(port, () => {

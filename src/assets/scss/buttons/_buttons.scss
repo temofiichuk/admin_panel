@@ -26,6 +26,10 @@
   background: $white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
+
+  &.center {
+    justify-content: center;
+  }
 }
 
 button,

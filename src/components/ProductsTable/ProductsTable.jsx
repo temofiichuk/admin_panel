@@ -1,11 +1,6 @@
 import "./ProductsTable.scss";
 import { RiEdit2Fill, RiDeleteBin2Fill, RiSortAsc, RiSortDesc } from "react-icons/ri";
-const ProductsTable = ({ products, setIsOpenModalDelete, setCurrentItemID }) => {
-  const handleClickToDelete = (id) => {
-    setCurrentItemID(id);
-    setIsOpenModalDelete(true);
-  };
-
+const ProductsTable = ({ products, handleClickToEdit, handleClickToDelete }) => {
   return (
     <table className="products__table">
       <thead>
@@ -38,19 +33,25 @@ const ProductsTable = ({ products, setIsOpenModalDelete, setCurrentItemID }) => 
         </tr>
       </thead>
       <tbody>
-        {products.map(({ id, category, name, quantity, price }) => (
-          <tr key={id}>
-            <th>{id}</th>
-            <th>{category}</th>
-            <th>{name}</th>
-            <th>{price}</th>
-            <th>{quantity}</th>
-            <th className="buttons">
-              <RiEdit2Fill className="btn" />
-              <RiDeleteBin2Fill onClick={() => handleClickToDelete(id)} className="btn" />
-            </th>
-          </tr>
-        ))}
+        {products.map((product) => {
+          const { id, category, name, quantity, price } = product;
+          return (
+            <tr key={id}>
+              <td>{id}</td>
+              <td>{category}</td>
+              <td>{name}</td>
+              <td>{price}</td>
+              <td>{quantity}</td>
+              <th className="buttons">
+                <RiEdit2Fill onClick={() => handleClickToEdit(product)} className="btn" />
+                <RiDeleteBin2Fill
+                  onClick={() => handleClickToDelete(id)}
+                  className="btn"
+                />
+              </th>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
