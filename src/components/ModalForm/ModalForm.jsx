@@ -46,7 +46,7 @@ const ModalForm = ({ setIsOpenModal, title, initialValues, handleProduct }) => {
             handleProduct(values);
             actions.setSubmitting(false);
           }}>
-          {({ values }) => {
+          {({ values, isSubmitting }) => {
             const { description, ..._values } = values;
             return (
               <Form>
@@ -120,10 +120,14 @@ const ModalForm = ({ setIsOpenModal, title, initialValues, handleProduct }) => {
                   <button
                     type="reset"
                     className="secondary-btn center"
-                    onClick={() => setIsOpenModal(false)}>
+                    onClick={() => setIsOpenModal(false)}
+                    disabled={isSubmitting}>
                     Cancel
                   </button>
-                  <button type="submit" className="secondary-btn center">
+                  <button 
+                    type="submit" 
+                    className="secondary-btn center"
+                    disabled={isSubmitting}>
                     {title}
                   </button>
                 </div>
