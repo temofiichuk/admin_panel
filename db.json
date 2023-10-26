@@ -8,9 +8,9 @@
       "id": 1,
       "category": "PC",
       "name": "Lenovo Y50-70",
-      "quantity": 0,
-      "price": 25000.0,
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone-13-pro-max-graphite-2023?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1679072989055",
+      "quantity": 11,
+      "price": 25000,
+      "image": "https://www.luxnote-hannover.de/media/catalog/product/cache/dd761501226fe9ca91c042b697296332/t/5/t570_03_2_1.png",
       "description": [
         {
           "head": "High-Performance Computing",
@@ -31,8 +31,8 @@
       "category": "Clothes",
       "name": "Nike M Nk Df Acd21",
       "quantity": 22,
-      "price": 4000.0,
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone-13-pro-max-graphite-2023?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1679072989055",
+      "price": 4000,
+      "image": "https://m.media-amazon.com/images/I/61VzENjOF9L._AC_SL1500_.jpg",
       "description": [
         {
           "head": "Sporty Comfort",
@@ -53,8 +53,8 @@
       "category": "Plumbing",
       "name": "CERSANIT MITO 17",
       "quantity": 1337,
-      "price": 5000.0,
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone-13-pro-max-graphite-2023?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1679072989055",
+      "price": 5000,
+      "image": "https://nexterio.de/thumbnail/6a/e7/80/1678106012/6ba17c3aff3b9a4e65eaa550a3adf767_1920x1920.jpg",
       "description": [
         {
           "head": "Premium Bathroom Solution",
@@ -72,67 +72,155 @@
     },
     {
       "id": 4,
-      "category": "PC",
-      "name": "Lenovo Y50-70",
-      "quantity": 5,
-      "price": 25000.0,
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone-13-pro-max-graphite-2023?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1679072989055",
+      "category": "Electronics",
+      "name": "Apple iPhone 13",
+      "quantity": 30,
+      "price": 79900,
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-blue-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629948513000",
       "description": [
         {
-          "head": "High-Performance Computing",
-          "body": "The Lenovo Y50-70 is a powerful laptop designed for seamless multitasking and immersive gaming experiences. With cutting-edge graphics and a high-speed processor, it delivers superior performance."
+          "head": "A15 Bionic Chip",
+          "body": "Experience lightning-fast performance and efficient multitasking with the A15 Bionic chip in the iPhone 13. It delivers industry-leading speed and energy efficiency for smooth usage."
         },
         {
-          "head": "Crisp Visuals",
-          "body": "Featuring a vibrant display and dedicated graphics card, the Lenovo Y50-70 offers stunning visuals and sharp details. Whether you're gaming, streaming, or editing, every detail comes to life."
+          "head": "Pro Camera System",
+          "body": "Capture professional-quality photos and videos with the advanced Pro camera system. From low-light photography to Dolby Vision recording, iPhone 13 redefines your photography experience."
         },
         {
-          "head": "Sleek Design",
-          "body": "Slim and stylish, this laptop boasts a sleek design that's easy to carry. Its robust build ensures durability, making it perfect for both work and play."
+          "head": "Immersive Super Retina XDR Display",
+          "body": "Enjoy stunning visuals on the Super Retina XDR display with ProMotion technology. The HDR content support and true blacks make every image and video pop with lifelike detail."
         }
       ]
     },
     {
       "id": 5,
-      "category": "Clothes",
-      "name": "Nike M Nk Df Acd21",
-      "quantity": 22,
-      "price": 4000.0,
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone-13-pro-max-graphite-2023?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1679072989055",
+      "category": "Books",
+      "name": "The Silent Patient",
+      "quantity": 45,
+      "price": 1599,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51zB3e5vGnL._SX329_BO1,204,203,200_.jpg",
       "description": [
         {
-          "head": "Sporty Comfort",
-          "body": "Nike M Nk Df Acd21 offers unparalleled comfort for your active lifestyle. Crafted with breathable fabric, these clothes provide optimal airflow, keeping you cool and dry during workouts."
+          "head": "Psychological Thriller",
+          "body": "Dive into the gripping world of 'The Silent Patient' where a woman's sudden silence after a shocking act of violence perplexes everyone. Unravel the mystery through a series of twists and turns."
         },
         {
-          "head": "Athletic Style",
-          "body": "Designed with a focus on athletic performance and style, these Nike clothes feature a modern fit and eye-catching design. Stand out from the crowd while enjoying maximum comfort."
+          "head": "Bestselling Novel",
+          "body": "Written by Alex Michaelides, this bestselling novel has captivated readers worldwide with its psychological depth and unexpected revelations. Prepare for a mind-bending journey."
         },
         {
-          "head": "Durable Quality",
-          "body": "Made from high-quality materials, these clothes are built to last. Whether you're hitting the gym or heading out for a run, Nike M Nk Df Acd21 ensures durability and longevity."
+          "head": "Critical Acclaim",
+          "body": "Critics and readers alike have praised 'The Silent Patient' for its compelling narrative and unpredictable plot. If you enjoy suspenseful psychological thrillers, this book is a must-read."
         }
       ]
     },
     {
       "id": 6,
-      "category": "Plumbing",
-      "name": "CERSANIT MITO 17",
-      "quantity": 1337,
-      "price": 5000.0,
-      "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone-13-pro-max-graphite-2023?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1679072989055",
+      "category": "Home Appliances",
+      "name": "Dyson V11 Absolute Pro",
+      "quantity": 18,
+      "price": 54900,
+      "image": "https://www.dyson.in/medialibrary/Group/Product/First-Page/Dyson-Product-Image_V11_Absolute_Blue_Absolute-Pro_277316-01.png",
       "description": [
         {
-          "head": "Premium Bathroom Solution",
-          "body": "CERSANIT MITO 17 offers a luxurious and functional solution for your bathroom. With elegant design and premium materials, it transforms your space into a spa-like retreat."
+          "head": "Powerful Suction",
+          "body": "Clean your home with ease using the Dyson V11 Absolute Pro. Its powerful suction and advanced filtration system capture 99.97% of particles as small as 0.3 microns, ensuring a thorough clean."
         },
         {
-          "head": "Easy Installation",
-          "body": "Designed for hassle-free installation, CERSANIT MITO 17 comes with user-friendly features. Upgrade your bathroom without the stress, and enjoy the convenience of modern plumbing."
+          "head": "Intelligent Cleaning",
+          "body": "Equipped with intelligent sensors, this vacuum cleaner automatically adjusts suction power based on the floor type. From carpets to hard floors, it optimizes performance for efficient cleaning."
         },
         {
-          "head": "Low Maintenance",
-          "body": "This plumbing solution is not only stylish but also easy to maintain. Its smooth surfaces repel stains and dirt, ensuring that your bathroom remains pristine with minimal effort."
+          "head": "Long Battery Life",
+          "body": "Enjoy uninterrupted cleaning with up to 60 minutes of runtime. The Dyson V11 Absolute Pro's high-capacity battery ensures long-lasting performance, allowing you to clean large spaces without interruptions."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "category": "Outdoor Gear",
+      "name": "The North Face Recon Backpack",
+      "quantity": 25,
+      "price": 7999,
+      "image": "https://images.thenorthface.com/is/image/TheNorthFace/NF0A3KV1JK3_hero?$BFProduct$",
+      "description": [
+        {
+          "head": "Spacious Design",
+          "body": "The North Face Recon Backpack offers ample space for your gear and belongings. Its spacious main compartment, multiple pockets, and laptop sleeve provide organized storage for your essentials."
+        },
+        {
+          "head": "Durable Construction",
+          "body": "Made from high-quality materials, this backpack is built to withstand outdoor adventures and everyday use. The reinforced seams and rugged design ensure durability in various conditions."
+        },
+        {
+          "head": "Comfortable Carry",
+          "body": "Featuring padded shoulder straps and a breathable back panel, this backpack provides comfortable carrying for long hikes or commutes. Stay comfortable while exploring the outdoors or navigating the city."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "category": "Kitchen Appliances",
+      "name": "Instant Pot Duo Plus 9-in-1",
+      "quantity": 35,
+      "price": 6499,
+      "image": "https://instantpot.com/wp-content/uploads/2019/10/duo-plus.jpg",
+      "description": [
+        {
+          "head": "Versatile Cooking",
+          "body": "The Instant Pot Duo Plus 9-in-1 is a versatile kitchen appliance that can replace multiple traditional cooking devices. From pressure cooking to sautéing and yogurt making, it covers a wide range of recipes."
+        },
+        {
+          "head": "Smart Programs",
+          "body": "Cook with confidence using the built-in smart programs. The Instant Pot's pre-programmed settings ensure precise cooking for various dishes, allowing you to create delicious meals with minimal effort."
+        },
+        {
+          "head": "Time-Saving Efficiency",
+          "body": "With faster cooking times and energy efficiency, this Instant Pot helps you save time and resources in the kitchen. Prepare wholesome meals for your family without spending hours in the kitchen."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "category": "Fitness Equipment",
+      "name": "Fitbit Charge 5 Fitness and Activity Tracker",
+      "quantity": 50,
+      "price": 14999,
+      "image": "https://www.fitbit.com/global/content/dam/fitbit/global/pdp/devices/charge-5/pdp-charge-5-hero-1600-black.png",
+      "description": [
+        {
+          "head": "Advanced Fitness Tracking",
+          "body": "Monitor your fitness progress with the Fitbit Charge 5. Track your heart rate, sleep quality, steps, and more. Stay motivated with real-time stats and personalized insights to achieve your health goals."
+        },
+        {
+          "head": "Built-in GPS",
+          "body": "Explore the outdoors and track your routes with built-in GPS. Whether you're jogging, hiking, or cycling, the Fitbit Charge 5 provides accurate GPS tracking, allowing you to map your activities."
+        },
+        {
+          "head": "Sleep Tracking and Analysis",
+          "body": "Improve your sleep quality with in-depth sleep tracking and analysis. The Fitbit Charge 5 monitors your sleep stages, provides sleep scores, and offers tips to enhance your sleep patterns for better rest."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "category": "Furniture",
+      "name": "IKEA EKTORP Sofa",
+      "quantity": 15,
+      "price": 27999,
+      "image": "https://www.ikea.com/in/en/images/products/ektorp-3-seat-sofa__0719196_PE732326_S5.JPG?f=s",
+      "description": [
+        {
+          "head": "Comfortable Seating",
+          "body": "Relax in style with the IKEA EKTORP Sofa. Its deep cushions and padded armrests provide comfortable seating for you and your guests. Enjoy leisure time or entertain friends and family with this cozy sofa."
+        },
+        {
+          "head": "Removable Covers",
+          "body": "Maintain the sofa's freshness effortlessly. The EKTORP Sofa comes with removable, machine-washable covers, allowing you to keep your furniture clean and free from stains."
+        },
+        {
+          "head": "Classic Design",
+          "body": "Enhance your living room decor with the timeless design of the EKTORP Sofa. Its neutral color and elegant silhouette make it a versatile choice that complements various interior styles and color schemes."
         }
       ]
     }

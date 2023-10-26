@@ -10,7 +10,15 @@ const ProductCard = ({ product: { id, name, image, price, quantity } }) => {
     <div onClick={() => navigate(`/product/${id}`)} className="product card">
       <div className="card__container">
         <div className="card__image">
-          <img src={image ?? noImage} alt={name} loading="lazy" />
+          <img
+            src={image ?? noImage}
+            alt={name}
+            loading="lazy"
+            onError={({ target }) => {
+              target.src = noImage;
+              target.alt = "No image";
+            }}
+          />
         </div>
         <div className="wrapper">
           <p className="card__name">{name}</p>

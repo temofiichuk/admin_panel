@@ -1,36 +1,7 @@
 import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
 import { RiCloseFill } from "react-icons/ri";
-import * as Yup from "yup";
 import "./ModalForm.scss";
-
-const yupString = Yup.string()
-  .min(2, "Too Short!")
-  .max(50, "Too Long!")
-  .required("Required")
-  .matches(/[A-Z|А-ЯЇЄІҐ]/, "Must be Uppercase");
-
-const yupNumber = Yup.number()
-  .min(0, "Must be more than zero")
-  .required("Required")
-  .typeError("Must be a number");
-
-const yupImage = Yup.string()
-  .required("Required")
-  .matches(/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|svg))$/i, "Invalid image URL");
-
-const yupDescription = Yup.object().shape({
-  head: yupString,
-  body: yupString.max(250, "Too Long!"),
-});
-
-const validationSchema = Yup.object().shape({
-  name: yupString,
-  category: yupString,
-  description: Yup.array().of(yupDescription),
-  image: yupImage,
-  price: yupNumber,
-  quantity: yupNumber,
-});
+import validationSchema from "./schema";
 
 const ModalForm = ({ setIsOpenModal, title, initialValues, handleProduct }) => {
   return (
@@ -124,8 +95,8 @@ const ModalForm = ({ setIsOpenModal, title, initialValues, handleProduct }) => {
                     disabled={isSubmitting}>
                     Cancel
                   </button>
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="secondary-btn center"
                     disabled={isSubmitting}>
                     {title}
