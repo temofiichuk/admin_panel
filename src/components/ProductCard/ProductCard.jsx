@@ -1,6 +1,8 @@
 import "./ProductCard.scss";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import noImage from "../../assets/img/NoImage.svg";
+
 const ProductCard = ({ product: { id, name, image, price, quantity } }) => {
   const navigate = useNavigate();
 
@@ -8,7 +10,7 @@ const ProductCard = ({ product: { id, name, image, price, quantity } }) => {
     <div onClick={() => navigate(`/product/${id}`)} className="product card">
       <div className="card__container">
         <div className="card__image">
-          <img src={image} alt={name} loading="lazy" />
+          <img src={image ?? noImage} alt={name} loading="lazy" />
         </div>
         <div className="wrapper">
           <p className="card__name">{name}</p>

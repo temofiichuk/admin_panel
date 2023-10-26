@@ -7,47 +7,88 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
 import axios from "axios";
+import ModalForm from "../../components/ModalForm/ModalForm";
 
 const ProductsEditing = () => {
   const [currentItemID, setCurrentItemID] = useState(null);
   const [isOpenModalDelete, setIsOpenModalDelete] = useState(false);
-  const [trigger, setTrigger] = useState(false);
+  const [isOpenModalForm, setIsOpenModalForm] = useState(false);
+  const [isEditableForm, setIsEditableForm] = useState(false);
+  const initialValues = {
+    category: "",
+    name: "",
+    quantity: "",
+    price: "",
+    image: "",
+    description: [],
+  };
+  const [initialValuesForm, setInitialValuesForm] = useState(initialValues);
+  const [products, setCanUpdateProducts] = useGetProducts();
 
-  const products = useGetProducts(trigger);
-
-  const handleDeleteItem = async () => {
+  const performRequest = async (method, endpoint, data) => {
     try {
-      const { data } = await axios.delete(
-        `${process.env.REACT_APP_DB_SERVER}/products/${currentItemID}`
+      const response = await axios[method](
+        `${process.env.REACT_APP_DB_SERVER}/products/${endpoint}`,
+        data
       );
-      if (data?.success) setTrigger((prev) => !prev);
+      if (response.data?.success) setCanUpdateProducts(true);
     } catch (error) {
-      console.error("Error delete product:", error);
+      console.error(`Error ${method} product:`, error);
     }
-    setIsOpenModalDelete(false);
+    method === "delete" ? setIsOpenModalDelete(false) : setIsOpenModalForm(false);
+  };
+
+  const actions = {
+    edit: (values) => performRequest("put", currentItemID, { product: values }),
+    add: (values) => performRequest("post", "", { product: values }),
+    remove: () => performRequest("delete", currentItemID),
+  };
+
+  const handleClickToDelete = (id) => {
+    setCurrentItemID(id);
+    setIsOpenModalDelete(true);
+  };
+  const handleClickToEdit = ({ id, ...product }) => {
+    setCurrentItemID(id);
+    setInitialValuesForm(product);
+    setIsOpenModalForm(true);
+    setIsEditableForm(true);
+  };
+  const handleClickToAdd = () => {
+    setInitialValuesForm(initialValues);
+    setIsOpenModalForm(true);
+    setIsEditableForm(false);
   };
 
   return (
-    <section className="product-editing-page">
+    <section className={"product-editing-page"}>
+      {isOpenModalForm && (
+        <ModalForm
+          title={isEditableForm ? "Edit product" : "Add product"}
+          initialValues={initialValuesForm}
+          setIsOpenModal={setIsOpenModalForm}
+          handleProduct={isEditableForm ? actions.edit : actions.add}
+        />
+      )}
+      {isOpenModalDelete && (
+        <ModalDelete
+          handleDelete={actions.remove}
+          setIsOpenModal={setIsOpenModalDelete}
+        />
+      )}
       <div className="container">
-        {isOpenModalDelete && (
-          <ModalDelete
-            handleDelete={handleDeleteItem}
-            setIsOpenModal={setIsOpenModalDelete}
-          />
-        )}
         <div className="product-editing__buttons">
           <Link to="/preview">
             <Button text="Preview" icon={<RiComputerFill />} />
           </Link>
-          <Button text="Add Product" icon={<RiAddFill />} />
+          <Button text="Add Product" icon={<RiAddFill />} onClick={handleClickToAdd} />
         </div>
         <h1>Products</h1>
         {products && (
           <ProductsTable
             products={products}
-            setCurrentItemID={setCurrentItemID}
-            setIsOpenModalDelete={setIsOpenModalDelete}
+            handleClickToEdit={handleClickToEdit}
+            handleClickToDelete={handleClickToDelete}
           />
         )}
       </div>

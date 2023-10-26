@@ -6,7 +6,7 @@ import { RiStackFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const ProductsPreview = () => {
-  const products = useGetProducts();
+  const [products] = useGetProducts();
 
   return (
     <section className="products-preview">

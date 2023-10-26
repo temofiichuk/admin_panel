@@ -1,0 +1,153 @@
+@import "src/assets/scss/variables/variables";
+
+.modal-form {
+  justify-content: center;
+  z-index: 9;
+
+  h2 {
+    width: 100%;
+    max-width: max-content;
+  }
+
+  &,
+  .form-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  &,
+  .form-container,
+  .buttons {
+    display: flex;
+  }
+
+  .form-bg {
+    background: $black_alfa_25;
+  }
+
+  .form-container {
+    top: 40px;
+    padding: 24px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 600px;
+    background: $white;
+    z-index: 10;
+    box-shadow: 0 0 25px $black_alfa_25;
+    max-height: calc(100% - 48px);
+    height: max-content;
+  }
+
+  .form-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .buttons {
+    justify-content: space-around;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .label-as-placeholder {
+    span {
+      position: absolute;
+      transition: 0.2s;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+    }
+
+    input:focus ~ span,
+    input[value]:not([value=""]) ~ span {
+      top: -10px;
+      left: 0;
+      font-size: 12px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    overflow: auto;
+    padding: 20px;
+  }
+
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    > * {
+      max-width: 47.5%;
+    }
+  }
+
+  .error {
+    position: absolute;
+    color: $error;
+    font-size: 14px;
+  }
+
+  label {
+    width: 100%;
+
+    &:not(.description-container label) {
+      margin-bottom: 10px;
+    }
+  }
+
+  input,
+  textarea {
+    width: inherit;
+    padding: 10px 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+  }
+
+  .description-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    margin: 0 -20px;
+
+    .wrapper {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+
+    textarea {
+      font-size: 14px;
+      padding: 5px 15px;
+      min-height: 60px;
+      line-height: 1;
+    }
+  }
+
+  .add-description {
+    margin: 0 auto;
+  }
+
+  .description-item {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .buttons button {
+    max-width: 48%;
+  }
+}

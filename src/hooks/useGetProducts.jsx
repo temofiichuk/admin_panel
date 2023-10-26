@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useGetProducts = (trigger) => {
+const useGetProducts = () => {
   const [products, setProducts] = useState(null);
+  const [canUpdateProducts, setCanUpdateProducts] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,11 +13,12 @@ const useGetProducts = (trigger) => {
       } catch (error) {
         console.error("Error fetching products:", error);
       }
+      setCanUpdateProducts(false);
     };
     fetchData();
-  }, [trigger]);
+  }, [canUpdateProducts]);
 
-  return products;
+  return [products, setCanUpdateProducts];
 };
 
 export default useGetProducts;
